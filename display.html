@@ -140,26 +140,9 @@
                 // HEK字
                 let hex = "#";
                 for (let i = 0; i < 3; i++) {
-                // 16進位英文字
-                const Eng = "ABCDEF";
-                // 取得3格的值
-                let rgb = parseInt(rgbs.children[i].children[1].value);
-                let rgbTen = `${Math.floor(rgb / 16)}`;
-                //十位數字超過9要轉換成英文
-                if (rgbTen > 9) {
-                    rgbTen = Eng[rgbTen - (9 + 1)];
-                }
-                //個位數字
-                let rgbDig = rgb % 16;
-                if (rgbDig === 0) {
-                    rgbDig = "0";
-                } //個位數字超過9要轉換成英文
-                else if (rgbDig > 9) {
-                    rgbDig = Eng[rgbDig - (9 + 1)];
-                }
-                rgb = rgbTen + rgbDig;
-
-                hex += rgb;
+                    let rgb = parseInt(rgbs.children[i].children[1].value);
+                    rgb = rgb.toString(16);
+                    hex += rgb;
                 }
                 const hexText =
                 target.parentElement.parentElement.parentElement.children[1].children[0];
